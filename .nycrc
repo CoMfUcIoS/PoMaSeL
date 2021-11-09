@@ -1,0 +1,44 @@
+{
+    "check-coverage": false,
+    "watermarks": {
+        "lines": [
+            80,
+            95
+        ],
+        "functions": [
+            80,
+            95
+        ],
+        "branches": [
+            80,
+            95
+        ],
+        "statements": [
+            80,
+            95
+        ]
+    },
+    "reporter": [
+        "html",
+        "text-summary",
+        "json",
+        "clover",
+        "lcov"
+    ],
+    "include": [
+        "src/**/*.{js,ts}"
+    ],
+    "exclude": [
+        "src/**/*.test.{js,ts}",
+        "src/**/webpack.config.ts"
+    ],
+    "extension": [
+			".ts",
+			".js"
+		],
+    "require": [
+        "ts-node/register"
+    ],
+    "cache": false,
+    "all": true
+}
