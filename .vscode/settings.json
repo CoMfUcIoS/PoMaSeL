@@ -1,0 +1,33 @@
+{
+  "mocha.coverage": {
+    "activeOnStart": true,
+    "autoUpdateInterval": 20000,
+    "decoration": true,
+    "enable": true,
+    "reporters": [
+      "html",
+      "text-summary",
+      "json",
+      "clover",
+      "lcov"
+    ],
+    "runAfterTest": false,
+    "runCoverageAfterFileSave": true,
+    "runWithInterval": false
+  },
+  "mocha.env": {},
+  "mocha.files.glob": "src/**/*.test.{js,ts}",
+  "mocha.logVerbose": true,
+  "mocha.parallelTests": 1,
+  "mocha.requires": [
+    "ts-node/register"
+  ],
+  "mocha.runTestsOnSave": "true",
+  "mocha.showErrorPopup": true,
+  "mocha.sideBarOptions": {
+    "autoUpdateTime": 2000,
+    "decoration": true,
+    "lens": true,
+    "showDebugTestStatus": true
+  }
+}
