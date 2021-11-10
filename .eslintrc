@@ -1,8 +1,8 @@
 {
-  env: {
-    node: true
+  "env": {
+    "node": true
   },
-  extends: [
+  "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
@@ -10,23 +10,62 @@
     "plugin:import/typescript",
     "prettier"
   ],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    allowImportExportEverywhere: true,
-    sourceType: "module"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "sourceType": "module"
   },
-  plugins: [
+  "plugins": [
     "babel",
     "prettier",
     "json",
     "eslint-plugin-import-helpers",
     "@typescript-eslint"
   ],
-  rules: {},
-  settings: {
+  "rules": {
+    "complexity": ["warn", 8],
+    "max-params": ["warn", 5],
+    "max-statements": ["warn", 15],
+    "max-statements-per-line": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "max-nested-callbacks": ["warn", 4],
+    "max-depth": [
+      "warn",
+      {
+        "max": 3
+      }
+    ],
+    "max-lines": ["warn", 400],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": false,
+        "trailingComma": "all",
+        "arrowParens": "avoid"
+      }
+    ],
+    "no-unused-expressions": 0,
+    "import-helpers/order-imports": [
+      "error",
+      {
+        "newlinesBetween": "always",
+        "groups": ["module", "/^~//", "/^@//"],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": false
+        }
+      }
+    ],
+    "arrow-parens": ["error", "as-needed"]
+  },
+  "settings": {
     "import/resolver": {
-      node: {
-        extensions: [
+      "node": {
+        "extensions": [
           ".js",
           ".ts"
         ]
