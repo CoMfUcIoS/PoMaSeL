@@ -1,11 +1,6 @@
-module.exports = {
+{
   env: {
-    node: true,
-  },
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    sourceType: "module",
-    allowImportExportEverywhere: true,
+    node: true
   },
   extends: [
     "eslint:recommended",
@@ -13,21 +8,29 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:import/typescript",
-    "prettier",
+    "prettier"
   ],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    allowImportExportEverywhere: true,
+    sourceType: "module"
+  },
   plugins: [
     "babel",
     "prettier",
     "json",
     "eslint-plugin-import-helpers",
-    "@typescript-eslint",
+    "@typescript-eslint"
   ],
   rules: {},
   settings: {
     "import/resolver": {
       node: {
-        extensions: [".js", ".ts"],
-      },
-    },
-  },
-};
+        extensions: [
+          ".js",
+          ".ts"
+        ]
+      }
+    }
+  }
+}
