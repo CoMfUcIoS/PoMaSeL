@@ -23,6 +23,7 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "import/no-unresolved": "off",
     "complexity": ["warn", 8],
     "max-params": ["warn", 5],
     "max-statements": ["warn", 15],
