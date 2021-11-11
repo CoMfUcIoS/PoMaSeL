@@ -1,20 +1,53 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "baseUrl": ".",
-        "paths": {
-            "utils/*": ["src/utils/*"],
-            "controllers/*": ["src/controllers/*"],
-            "middlewares/*": ["src/middlewares/*"],
-            "models/*": ["src/models/*"],
-            "routes/*": ["src/routes/*"],
-        },
-        "sourceMap": true,
-        "skipLibCheck": true,
-        "noImplicitAny": true,
-        "module": "commonjs",
-        "target": "es6",
-        "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
+        "baseUrl": "src",
+        "composite": false,
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "noUnusedParameters": true,
+        "outDir": "./dist/",
+        "paths": {
+            "controllers/*": [
+                "src/controllers/*"
+            ],
+            "middlewares/*": [
+                "src/middlewares/*"
+            ],
+            "models/*": [
+                "src/models/*"
+            ],
+            "routes/*": [
+                "routes/*"
+            ],
+            "utils/*": [
+                "utils/*"
+            ]
+        },
+        "plugins": [
+            {
+                "transform": "typescript-transform-paths"
+            }
+        ],
+        "resolveJsonModule": true,
+        "rootDir": ".",
+        "skipLibCheck": false,
+        "sourceMap": false
+    },
+    "include": [
+        "src/**/*",
+        "package.json",
+        "webpack.minimizer.ts"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2016,
+        "sourceType": "module"
+    },
+    "ts-node": {
+        "require": [
+            "typescript-transform-paths/register",
+            "tsconfig-paths/register"
+        ],
+        "transpileOnly": true
     }
 }

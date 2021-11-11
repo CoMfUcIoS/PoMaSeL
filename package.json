@@ -27,15 +27,22 @@
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "fast-json-stringify": "^2.7.12",
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
+    "long": "^5.1.0",
     "mocha": "^9.1.3",
     "nyc": "^15.1.0",
+    "pino-pretty": "^7.2.0",
     "terser-webpack-plugin": "^5.2.5",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
+    "ttypescript": "^1.5.12",
     "typescript": "^4.4.4",
+    "typescript-transform-paths": "^3.3.1",
     "webpack": "^5.62.2",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
@@ -44,8 +51,8 @@
     "preinstall": "check-engine",
     "postinstall": "husky install",
     "fix-lint-staged": "lint-staged",
-    "build": "webpack --config src/webpack.config.ts --mode production",
-    "start": "webpack serve  --config src/webpack.config.ts --mode development --devtool inline-source-map --hot",
+    "build": "webpack --config src/webpack.config.ts --mode production --progress --color --stats-error-details",
+    "start": "ts-node-dev --respawn ./src/server.ts",
     "lint": "eslint --ext .js --ext .ts --ext .json src",
     "fix-lint": "eslint --fix --ext .js --ext .ts --ext .json src",
     "test": "nyc mocha \"./src/**/*.test.{js,ts}\" --exit"
@@ -60,5 +67,11 @@
   "bugs": {
     "url": "https://github.com/CoMfUcIoS/PoMaSeL/issues"
   },
-  "homepage": "https://github.com/CoMfUcIoS/PoMaSeL#readme"
+  "homepage": "https://github.com/CoMfUcIoS/PoMaSeL#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fastify": "^3.23.1",
+    "fastify-cookie": "^5.3.2",
+    "fastify-cors": "^6.0.2"
+  }
 }

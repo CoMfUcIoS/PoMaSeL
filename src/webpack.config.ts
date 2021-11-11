@@ -7,7 +7,7 @@ import minimizer from "../webpack.minimizer";
 
 const forkTsChecker = new ForkTsCheckerWebpackPlugin();
 
-const externals = ["pg-hstore", "pg-native"];
+const externals = [];
 
 module.exports = {
   target: "node",
