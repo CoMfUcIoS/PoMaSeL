@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Use Official docker actions [\#11](https://github.com/CoMfUcIoS/PoMaSeL/pull/11) ([CoMfUcIoS](https://github.com/CoMfUcIoS))
 - Bump node version in Dockerfile [\#10](https://github.com/CoMfUcIoS/PoMaSeL/pull/10) ([CoMfUcIoS](https://github.com/CoMfUcIoS))
 - Set Changelong to main [\#9](https://github.com/CoMfUcIoS/PoMaSeL/pull/9) ([CoMfUcIoS](https://github.com/CoMfUcIoS))
 - Set Changelong to main [\#8](https://github.com/CoMfUcIoS/PoMaSeL/pull/8) ([CoMfUcIoS](https://github.com/CoMfUcIoS))
