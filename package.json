@@ -4,8 +4,8 @@
   "description": "Poor Man ServerLess",
   "main": "dist/server.js",
   "engines": {
-    "node": ">=14.17.3",
-    "npm": ">=7.20.0"
+    "node": ">=16.13.0",
+    "npm": ">=8.1.0"
   },
   "lint-staged": {
     "*.{js,jsx,json,ts,tsx}": [
