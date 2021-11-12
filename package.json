@@ -48,7 +48,7 @@
     "webpack-dev-server": "^4.4.0"
   },
   "scripts": {
-    "preinstall": "check-engine",
+    "preinstall": "npx check-engine",
     "postinstall": "husky install",
     "fix-lint-staged": "lint-staged",
     "build": "webpack --config src/webpack.config.ts --mode production --progress --color --stats-error-details",
