@@ -10,7 +10,7 @@ on:
 jobs:
   generate_changelog:
     runs-on: ubuntu-latest
-    name: Generate changelog for master branch
+    name: Generate changelog for main branch
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
@@ -32,4 +32,4 @@ jobs:
           CI_USER: ${{secrets.USER}}
           CI_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          git push "https://$CI_USER:$CI_TOKEN@github.com/$GITHUB_REPOSITORY.git" HEAD:master
+          git push "https://$CI_USER:$CI_TOKEN@github.com/$GITHUB_REPOSITORY.git" HEAD:main
