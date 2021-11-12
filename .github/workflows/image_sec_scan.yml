@@ -17,11 +17,11 @@ jobs:
           echo "IMAGE_TAG=test-$(echo "${{ github.sha }}")" >> $GITHUB_ENV
       - name: Build the Docker image
         run: |
-          docker build -t CoMfUcIoS/dr_ServerLess:${{ steps.extract_tag.outputs.tag }}
+          docker build -t docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }} .
       - name: Run vulnerability scanner on image
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: "CoMfUcIoS/dr_ServerLess:${{ steps.extract_tag.outputs.tag }}"
+          image-ref: "docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}"
           format: "table"
           exit-code: "1"
           ignore-unfixed: true
@@ -29,4 +29,4 @@ jobs:
       - name: Tidy up
         if: always()
         run: |
-          docker image rm CoMfUcIoS/dr_ServerLess:${{ steps.extract_tag.outputs.tag }}
+          docker image rm docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}

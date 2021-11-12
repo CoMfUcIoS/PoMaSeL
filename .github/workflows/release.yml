@@ -20,14 +20,14 @@ jobs:
       - name: Build the Docker image
         id: build_image
         run: |
-          docker build -t CoMfUcIoS/dr_ServerLess:${{ steps.extract_tag.outputs.tag }}
+          docker build -t docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }} .
         shell: bash
       - name: Push image to docker hub
         run: |
           echo ${{secrets.DOCKER_TOKEN}} | docker login -u ${{secrets.USER}} --password-stdin
-          docker push CoMfUcIoS/dr_ServerLess:${{ steps.extract_tag.outputs.tag }}
-          docker tag CoMfUcIoS/dr_ServerLess:${{ steps.extract_tag.outputs.tag }}  CoMfUcIoS/dr_ServerLess:latest
-          docker push CoMfUcIoS/dr_ServerLess:latest
+          docker push docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}
+          docker tag docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}  docker.io/comfucios/dr_serverless:latest
+          docker push docker.io/comfucios/dr_serverless:latest
         shell: bash
       - name: Create Release
         id: create_release
@@ -45,5 +45,5 @@ jobs:
       - name: Tidy up
         if: always()
         run: |
-          docker image rm CoMfUcIoS/dr_ServerLess:${{ steps.extract_tag.outputs.tag }}
-          docker image rm CoMfUcIoS/dr_ServerLess:latest
+          docker image rm docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}
+          docker image rm docker.io/comfucios/dr_serverless:latest
