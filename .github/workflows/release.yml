@@ -1,0 +1,49 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.3.2
+      - name: Extract tag name
+        shell: bash
+        run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/tags/})"
+        id: extract_tag
+      - name: Build the Docker image
+        id: build_image
+        run: |
+          docker build -t docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }} .
+        shell: bash
+      - name: Push image to docker hub
+        run: |
+          echo ${{secrets.DOCKER_TOKEN}} | docker login -u ${{secrets.USER}} --password-stdin
+          docker push docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}
+          docker tag docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}  docker.io/comfucios/dr_serverless:latest
+          docker push docker.io/comfucios/dr_serverless:latest
+        shell: bash
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            For changes in this Release
+            Please check CHANGELOG.md
+          draft: false
+          prerelease: false
+      - name: Tidy up
+        if: always()
+        run: |
+          docker image rm docker.io/comfucios/dr_serverless:${{ steps.extract_tag.outputs.tag }}
+          docker image rm docker.io/comfucios/dr_serverless:latest

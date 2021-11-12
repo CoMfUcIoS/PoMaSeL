@@ -1,0 +1,58 @@
+name: Code Quality
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["16.13.0"]
+    steps:
+      - name: checkout Code
+        uses: actions/checkout@v2.3.2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Prepare environment
+        run: npm install -g npm@latest
+      - name: npm install deps
+        uses: bahmutov/npm-install@v1
+      - name: Run Eslint
+        uses: a-b-r-o-w-n/eslint-action@v2.1.0
+        with:
+          repo-token: "${{ secrets.TOKEN }}"
+          files: "src/**/*"
+          ignore: "src/**/*.mocha-snapshot"
+          extensions: ".ts,.tsx,.json"
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["16.13.0"]
+    steps:
+      - name: checkout Code
+        uses: actions/checkout@v2.3.2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Prepare environment
+        run: npm install -g npm@latest
+      - name: npm install deps
+        uses: bahmutov/npm-install@v1
+      - name: Run unit tests
+        run: npm test
+        shell: bash
+        env:
+          CI: true
+      - name: Monitor overall coverage
+        uses: slavcodev/coverage-monitor-action@1.2.0
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          clover_file: "coverage/clover.xml"
+          threshold_alert: 58
+          threshold_warning: 70
