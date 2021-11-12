@@ -17,6 +17,7 @@ jobs:
       - name: Generate changelog
         uses: charmixer/auto-changelog-action@v1.4
         with:
+          release_branch: main
           token: ${{ secrets.TOKEN }}
       - name: Commit files
         env:
