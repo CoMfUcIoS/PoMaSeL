@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Bump follow-redirects from 1.14.5 to 1.14.8 [\#12](https://github.com/CoMfUcIoS/PoMaSeL/pull/12) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Use Official docker actions [\#11](https://github.com/CoMfUcIoS/PoMaSeL/pull/11) ([CoMfUcIoS](https://github.com/CoMfUcIoS))
 - Bump node version in Dockerfile [\#10](https://github.com/CoMfUcIoS/PoMaSeL/pull/10) ([CoMfUcIoS](https://github.com/CoMfUcIoS))
 - Set Changelong to main [\#9](https://github.com/CoMfUcIoS/PoMaSeL/pull/9) ([CoMfUcIoS](https://github.com/CoMfUcIoS))
