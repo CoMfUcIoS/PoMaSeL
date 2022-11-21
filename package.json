@@ -70,7 +70,7 @@
   "homepage": "https://github.com/CoMfUcIoS/PoMaSeL#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "fastify": "^3.23.1",
+    "fastify": "^3.29.4",
     "fastify-cookie": "^5.3.2",
     "fastify-cors": "^6.0.2"
   }
